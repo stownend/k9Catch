@@ -1,0 +1,37 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Chrome against localhost, with sourcemaps",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:4200",
+            "sourceMaps": true,
+            "webRoot": "${workspaceRoot}",
+            "trace": true,
+            "smartStep": true,
+            "runtimeArgs": [
+              "--disable-session-crashed-bubble",
+              "--disable-infobars"
+            ],
+            "userDataDir": "${workspaceRoot}/.vscode/chrome",
+            "sourceMapPathOverrides": {
+                "webpack:///./*": "${webRoot}/*"
+            }
+        }
+        // ,{
+        //     // Note: To use this config, start Chrome 1st with the command:-
+        //     // start chrome --remote-debugging-port=9222 --user-data-dir=remote-profile http://localhost:4200
+        //     "name": "Attach to Chrome, with sourcemaps",
+        //     "type": "chrome",
+        //     "request": "attach",
+        //     "port": 9222,
+        //     "sourceMaps": true,
+        //     "webRoot": "${workspaceRoot}/src",
+        //     "url": "http://localhost:4200/",
+        //     "sourceMapPathOverrides": {
+        //       "webpack:///*": "/*"
+        //     }
+        // }
+    ]
+}
