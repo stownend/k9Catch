@@ -1,0 +1,93 @@
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" (click)="toggleMenu()">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html"><i class="navbar-logo fa fa-paw"></i> K9Catch <i class="navbar-logo fa fa-paw"></i></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  *ngIf="isVisible">
+                <ul class="nav navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/']" (click)="hideCollapsedMenu()">K9Catch</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/gallery']"  (click)="hideCollapsedMenu()">Gallery</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/members']" (click)="hideCollapsedMenu()">Members</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/gallery']"  (click)="hideCollapsedMenu()">Upgrade</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/gallery']"  (click)="hideCollapsedMenu()">Events</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/gallery']"  (click)="hideCollapsedMenu()">Donate</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/gallery']"  (click)="hideCollapsedMenu()">Forums</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/gallery']"  (click)="hideCollapsedMenu()">News</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/gallery']"  (click)="hideCollapsedMenu()">Contact us</a>
+                  </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+<!--
+<header>
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleMenu()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" [routerLink]="['/']"><i class="navbar-logo fa fa-paw"></i></a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
+      <ul class="nav navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']" (click)="toggleMenu()">K9Catch</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/gallery']"  (click)="toggleMenu()">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/members']" (click)="toggleMenu()">Members</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/gallery']"  (click)="toggleMenu()">Upgrade</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/gallery']"  (click)="toggleMenu()">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/gallery']"  (click)="toggleMenu()">Donate</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/gallery']"  (click)="toggleMenu()">Forums</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/gallery']"  (click)="toggleMenu()">News</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/gallery']"  (click)="toggleMenu()">Contact us</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+-->

@@ -19,6 +19,9 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "assets/fa.scss",
+        "assets/bootstrap/startbootstrap-business-casual-gh-pages/css/bootstrap.min.css",
+        "assets/bootstrap/startbootstrap-business-casual-gh-pages/css/business-casual.css",
         "styles.css"
       ],
       "scripts": [],
