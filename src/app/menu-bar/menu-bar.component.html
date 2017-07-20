@@ -22,25 +22,25 @@
                     <a class="nav-link" [routerLink]="['/gallery']"  (click)="hideCollapsedMenu()">Gallery</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/members']" (click)="hideCollapsedMenu()">Members</a>
+                    <a class="nav-link" [routerLink]="['/members']" (click)="hideCollapsedMenu()" *ngIf="appService.loggedOn">Members</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/gallery']"  (click)="hideCollapsedMenu()">Upgrade</a>
+                    <a class="nav-link" [routerLink]="['/upgrade']"  (click)="hideCollapsedMenu()" *ngIf="!appService.loggedOn">Upgrade</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/gallery']"  (click)="hideCollapsedMenu()">Events</a>
+                    <a class="nav-link" [routerLink]="['/events']"  (click)="hideCollapsedMenu()" *ngIf="appService.loggedOn">Events</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/gallery']"  (click)="hideCollapsedMenu()">Donate</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/gallery']"  (click)="hideCollapsedMenu()">Forums</a>
+                    <a class="nav-link" [routerLink]="['/gallery']"  (click)="hideCollapsedMenu()" *ngIf="appService.loggedOn">Forums</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/gallery']"  (click)="hideCollapsedMenu()">News</a>
+                    <a class="nav-link" [routerLink]="['/news']"  (click)="hideCollapsedMenu()">News</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/gallery']"  (click)="hideCollapsedMenu()">Contact us</a>
+                    <a class="nav-link" [routerLink]="['/contact']"  (click)="hideCollapsedMenu()">Contact us</a>
                   </li>
                 </ul>
             </div>
