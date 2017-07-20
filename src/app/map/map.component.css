@@ -1,4 +1,4 @@
-agm-map {
+ agm-map {
   height: 300px;
-  width: 400px;
-}
+  /* width: 400px; // Width set by Boostrap md-8 */
+} 
