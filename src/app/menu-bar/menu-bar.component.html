@@ -1,53 +1,53 @@
-    <!-- Navigation -->
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" (click)="toggleMenu()">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html"><i class="navbar-logo fa fa-paw paw-print"></i> K9Catch <i class="navbar-logo fa fa-paw paw-print"></i></a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  *ngIf="isVisible">
-                <ul class="nav navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/']" (click)="hideCollapsedMenu()">K9Catch</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/gallery']"  (click)="hideCollapsedMenu()">Gallery</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/members']" (click)="hideCollapsedMenu()" *ngIf="appService.loggedOn">Members</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/upgrade']"  (click)="hideCollapsedMenu()" *ngIf="!appService.loggedOn">Upgrade</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/events']"  (click)="hideCollapsedMenu()" *ngIf="appService.loggedOn">Events</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/gallery']"  (click)="hideCollapsedMenu()">Donate</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/gallery']"  (click)="hideCollapsedMenu()" *ngIf="appService.loggedOn">Forums</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/news']"  (click)="hideCollapsedMenu()">News</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/contact']"  (click)="hideCollapsedMenu()">Contact us</a>
-                  </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+  <!-- Navigation -->
+  <nav class="navbar navbar-default" >
+        <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" (click)="toggleMenu()">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+        <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+        <a class="navbar-brand" [routerLink]="['/']"><i class="navbar-logo fa fa-paw paw-print"></i> K9Catch <i class="navbar-logo fa fa-paw paw-print"></i></a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" *ngIf="isVisible">
+        <ul class="nav navbar-nav">
+          <li >
+            <a [routerLink]="['/']" (click)="hideCollapsedMenu()">Home</a>
+          </li>
+          <li >
+            <a [routerLink]="['/gallery']" (click)="hideCollapsedMenu()">Gallery</a>
+          </li>
+          <li >
+            <a [routerLink]="['/members']" (click)="hideCollapsedMenu()" *ngIf="appService.loggedOn">Members</a>
+          </li>
+          <li >
+            <a [routerLink]="['/upgrade']" (click)="hideCollapsedMenu()" *ngIf="!appService.loggedOn">Upgrade</a>
+          </li>
+          <li >
+            <a [routerLink]="['/events']" (click)="hideCollapsedMenu()" *ngIf="appService.loggedOn">Events</a>
+          </li>
+          <li >
+            <a [routerLink]="['/gallery']" (click)="hideCollapsedMenu()">Donate</a>
+          </li>
+          <li >
+            <a [routerLink]="['/gallery']" (click)="hideCollapsedMenu()" *ngIf="appService.loggedOn">Forums</a>
+          </li>
+          <li >
+            <a [routerLink]="['/news']" (click)="hideCollapsedMenu()">News</a>
+          </li>
+          <li >
+            <a [routerLink]="['/contact']" (click)="hideCollapsedMenu()">Contact us</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    <!-- /.container -->
+    </div>
+  </nav>
 
 <!--
 <header>
