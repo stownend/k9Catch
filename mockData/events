@@ -1,35 +1,33 @@
 [
     {
+        "id": 0,
         "eventName": "Meet new Friends",
         "organiser": "Rachel",
         "placeName": "Central Perk",
         "when": "2017-07-22 14:15",
-        "addressLine1": "New York",
-        "addressLine2": "USA",
+        "addressLines": "New York\nUSA",
         "lat": 40.7828647,
         "lng": -73.9675438,
         "zoom": 16
     },
     {
+        "id": 1,
         "eventName": "Our first meet up",
         "organiser": "Jean Luc Picard",
         "placeName": "The Picard's gaff",
         "when": "2017-07-01 12:32",
-        "addressLine1": "The bridge",
-        "addressLine2": "Deck 1",
-        "addressLine3": "USS Enterprise",
+        "addressLines": "The bridge\nDeck 1\nUSS Enterprise",
         "lat": 53.70488,
         "lng": -0.867208,
         "zoom": 16
     },
     {
+        "id": 2,
         "eventName": "Pizza Night!",
         "organiser": "The old goat",
         "placeName": "The Ranch",
         "when": "2017-08-13 19:00",
-        "addressLine1": "30 Hopgrove Lane South",
-        "addressLine2": "York",
-        "addressLine3": "YO32 9TG",
+        "addressLines": "30 Hopgrove Lane South\nYork\nYO32 9TG",
         "lat": 53.9874047,
         "lng": -1.0266158,
         "zoom": 16
