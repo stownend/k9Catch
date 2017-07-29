@@ -8,7 +8,11 @@ import { AppService } from '../shared/app.service';
 })
 export class MembersComponent implements OnInit {
 
-  constructor(private appService: AppService) { }
+  public appService: AppService;
+
+  constructor(private _appService: AppService) {
+    this.appService = _appService;
+  }
 
   ngOnInit() {
   }

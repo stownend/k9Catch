@@ -8,8 +8,14 @@ import { AppService } from '../shared/app.service';
 })
 export class UpgradeComponent implements OnInit {
 
-  constructor(private appService: AppService) { 
-    appService.loggedOn = true;
+  public appService: AppService;
+
+  constructor(private _appService: AppService) { 
+    
+    this.appService = _appService;
+
+    this.appService.loggedOn = true;
+
   }
 
   ngOnInit() {

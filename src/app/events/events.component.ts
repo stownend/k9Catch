@@ -15,11 +15,15 @@ export class EventsComponent implements OnInit {
 
   events: K9Event[] = [];
 
+  public appService: AppService;
+
   constructor(
-    private appService: AppService,
+    private _appService: AppService,
     private eventService: EventService, 
     private utilService: UtilService,
     private logService: LogService) { 
+
+      this.appService = _appService;
   }
 
   ngOnInit() {

@@ -15,10 +15,14 @@ export class EventCardComponent implements OnInit {
   // Gets passed in from a repeater on the events page
   @Input() event: K9Event;
   
+  public appService: AppService;
+
   constructor(
-    private appService: AppService,
+    private _appService: AppService,
     private eventsComponent: EventsComponent,
     private logService: LogService) { 
+
+      this.appService = _appService;
   }
 
   ngOnInit() {
