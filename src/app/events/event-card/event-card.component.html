@@ -1,0 +1,46 @@
+<div class="box">
+    <div class="col-lg-12">
+        <div *ngIf="appService.adminMode">
+            <div *ngIf="!editing(event)" >
+                <button class="btn btn-default pull-right" [disabled]="editingInProgress()" (click)="startEdit()"><i class="fa fa-pencil"></i> Edit</button>
+            </div>
+            <div *ngIf="editing(event)">
+                <button class="btn btn-default pull-right edit-button" (click)="saveEdit()"><i class="fa fa-check"></i> Save</button>
+                <button class="btn btn-default pull-right edit-button" (click)="abortEdit()"><i class="fa fa-times"></i> Undo</button>
+                <button class="btn btn-default pull-right edit-button" (click)="deleteEvent()"><i class="fa fa-trash"></i> Delete</button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <hr>
+        <h2 class="intro-text text-center">Event
+            <strong *ngIf="!editing()">{{event.eventName}}</strong>
+            <input *ngIf="editing()" [(ngModel)]="event.eventName">
+        </h2>
+        <hr>
+    </div>
+    <div class="col-md-8">
+        <app-map [placeName]="event.placeName" [(lat)]="event.lat" [(lng)]="event.lng" [zoom]="event.zoom" (onMapClick)="onMapClick($event)" class="col-8"></app-map>
+    </div>
+    <div class="col-4">
+        <p>Organiser:
+            <strong *ngIf="!editing()">{{event.organiser}}</strong>
+            <input *ngIf="editing()" [(ngModel)]="event.organiser" class="pull-right">
+        </p>
+        <p>When:
+            <strong *ngIf="!editing()">{{event.when | date:'medium'}}</strong>
+            <input *ngIf="editing()" [(ngModel)]="event.when" class="pull-right">
+        </p>
+        <p>Where: 
+            <strong *ngIf="!editing()">{{event.placeName}}
+              <p style="white-space: pre; font-size: 1em;">{{event.addressLines}}</p>
+            </strong>
+            <span *ngIf="editing()">
+                <input [(ngModel)]="event.placeName" class="pull-right">
+                <p style="font-size: 1em;">
+                    <textarea rows="6" [(ngModel)]="event.addressLines" class="pull-right"></textarea>
+                </p>
+            </span>
+        </p>
+    </div>
+    <div class="clearfix"></div>
+</div>

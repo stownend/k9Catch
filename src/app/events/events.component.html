@@ -1,5 +1,11 @@
 <div class="container">
-  <div class="row">
-    <app-event *ngFor="let ev of events" [event]="ev"></app-event>
-  </div>
+    <div *ngIf="appService.adminMode" class="row">
+        <button class="btn btn-default pull-right" [disabled]="editingInProgress()" (click)="addEvent()"><i class="fa fa-plus"></i> New Event</button>
+        <br/>
+        <br/>
+        <div class="clearfix"></div>
+    </div>
+    <div class="row">
+      <app-event-card *ngFor="let ev of events" [event]="ev"></app-event-card>
+    </div>
 </div>

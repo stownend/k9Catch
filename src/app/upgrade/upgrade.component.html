@@ -5,6 +5,8 @@
             <strong>You are now logged on</strong>
         </h2>
         <hr>
+        <button *ngIf="!appService.adminMode" class="btn btn-default center-block" (click)="appService.adminMode = true">Turn ON Admin mode</button>
+        <button *ngIf="appService.adminMode" class="btn btn-default center-block" (click)="appService.adminMode = false">Turn OFF Admin mode</button>
     </div>
     <div class="clearfix"></div>
 </div>

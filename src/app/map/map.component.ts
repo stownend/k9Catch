@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Coordinate } from '../models/coordinate';
 
 @Component({
   selector: 'app-map',
@@ -11,7 +12,7 @@ export class MapComponent implements OnInit {
   @Input() lat;
   @Input() lng;
   @Input() zoom;
-
+  @Output() onMapClick: EventEmitter<Coordinate> = new EventEmitter();
 
   constructor() { 
     this.lat = 51.5285582;
@@ -24,4 +25,12 @@ export class MapComponent implements OnInit {
 
   }
 
+  mapClicked($event) {
+      let clickedAt: Coordinate = new Coordinate();
+      clickedAt.lat = $event.coords.lat;
+      clickedAt.lng = $event.coords.lng;
+      clickedAt.zoom = this.zoom;
+
+      this.onMapClick.emit(clickedAt);
+  }
 }

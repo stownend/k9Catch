@@ -15,6 +15,8 @@ export class EventService {
 
   getEvents() {
     return this.http.get(this.appService.dataService + '/events')
-      .map(response => <K9Event[]>response.json().data);
+      .map(response => {
+        return <K9Event[]>response.json(); 
+      });
   }
 }

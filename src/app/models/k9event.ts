@@ -1,16 +1,11 @@
-export class K9Event {
-  eventName: string;
-  organiser: string;
-  placeName: string;
-  when: Date;
-  addressLine1: string;
-  addressLine2: string;
-  addressLine3: string;
-  addressLine4: string;
-  addressLine5: string;
-  addressLine6: string;
-
-  lat: number;
-  lng: number;
-  zoom: number;
+export class K9Event { 
+    public id: number;
+    public eventName: string;
+    public organiser: string;
+    public placeName: string;
+    public when: Date;
+    public addressLines: string;
+    public lat: number;
+    public lng: number;
+    public zoom: number;
 }

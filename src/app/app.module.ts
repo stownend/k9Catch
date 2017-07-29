@@ -12,13 +12,16 @@ import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { MembersComponent } from './members/members.component';
 import { MapComponent } from './map/map.component';
-import { EventComponent } from './event/event.component';
 import { EventService } from './shared/event.service';
+import { UtilService } from './shared/util.service';
+import { LogService } from './shared/log.service';
 import { AppService } from './shared/app.service';
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { EventsComponent } from './events/events.component';
 import { ContactComponent } from './contact/contact.component';
 import { NewsComponent } from './news/news.component';
+import { EventCardComponent } from './events/event-card/event-card.component';
+import { Logger } from "angular2-logger/core";
 
 @NgModule({
   declarations: [
@@ -28,11 +31,11 @@ import { NewsComponent } from './news/news.component';
     GalleryComponent,
     MembersComponent,
     MapComponent,
-    EventComponent,
     UpgradeComponent,
     EventsComponent,
     ContactComponent,
-    NewsComponent
+    NewsComponent,
+    EventCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,10 @@ import { NewsComponent } from './news/news.component';
       apiKey: 'AIzaSyDvO9TRr0j0NvPjYhX_ZCA8xTP3dD0aA40'
     })
   ],
-  providers: [EventService, AppService],
+  providers: [EventService, UtilService, LogService, Logger, AppService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+ 
+}
