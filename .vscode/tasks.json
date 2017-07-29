@@ -6,7 +6,8 @@
         {
             "taskName": "deploy to GitHub pages",
             "command": "npm run deploy; ngh",
-            "type": "shell"
+            "type": "shell",
+            "problemMatcher": []
         }
     ]
 }

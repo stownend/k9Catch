@@ -1,36 +1,56 @@
 import { Injectable } from '@angular/core';
-import { Logger } from "angular2-logger/core";
 import { UtilService } from '../shared/util.service';
 
 @Injectable()
 export class LogService {
 
-  constructor(private logger: Logger, private utilService: UtilService) { }
+  public level: LogLevel = LogLevel.None;
+
+  constructor(private utilService: UtilService) { }
 
   debug(message: string) {
-    this.logger.debug(this.utilService.timestamp() + " [DEBUG] " + message);
+    if (this.level == LogLevel.Debug) {
+      this.log(message, "DEBUG");
+    }
   }
 
   debugObj(obj: any) {
 
-    if (this.logger.isDebugEnabled) {
+    if (this.level == LogLevel.Debug) {
       console.log(this.utilService.timestamp() + " [DEBUG OBJECT] ");
       console.log(obj);
     }
   }
 
   info(message: string) {
-    this.logger.info(this.utilService.timestamp() + "  [INFO] " + message);
+    if (this.level == LogLevel.Info) {
+      this.log(message, "INFO");
+    }
   }
 
   warn(message: string) {
-    this.logger.warn(this.utilService.timestamp() + "  [WARN] " + message);
+    if (this.level == LogLevel.Warn) {
+      this.log(message, "WARN");
+    }
   }
 
   error(message: string) {
-    this.logger.error(this.utilService.timestamp() + " [ERROR] " + message);
+    if (this.level == LogLevel.Error) {
+      this.log(message, "ERROR");
+    }
   }
 
 
+  private log(message: string, level: string) {
+    console.log(this.utilService.timestamp() + " [" + level.toUpperCase() + "] " + message)
+  }
  
+}
+
+export enum LogLevel {
+  None,
+  Debug,
+  Info,
+  Warn,
+  Error
 }

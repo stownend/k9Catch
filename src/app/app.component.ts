@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Logger } from "angular2-logger/core";
 import { LogService } from './shared/log.service';
+import { LogLevel } from './shared/log.service';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +10,11 @@ import { LogService } from './shared/log.service';
 export class AppComponent implements OnInit {
   title = 'Welcome to K9CATCH';
 
-  constructor(private logger: Logger, private logService: LogService) {
+  constructor(private logService: LogService) {
   }
 
   ngOnInit() {
-      this.logger.level = this.logger.Level.DEBUG;
+      this.logService.level = LogLevel.Debug;
 
       this.logService.debug("Debug is all set!");
       this.logService.warn("A warning message");

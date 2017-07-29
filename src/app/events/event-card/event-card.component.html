@@ -20,6 +20,10 @@
     </div>
     <div class="col-md-8">
         <app-map [placeName]="event.placeName" [(lat)]="event.lat" [(lng)]="event.lng" [zoom]="event.zoom" (onMapClick)="onMapClick($event)" class="col-8"></app-map>
+        <div *ngIf="editing()">
+            <br/>
+            <p class="bg-danger"><strong>Tip :</strong> Scale/move the map to suit then click/tap the required map centre.</p>
+        </div>
     </div>
     <div class="col-4">
         <p>Organiser:

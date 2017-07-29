@@ -21,7 +21,7 @@ import { EventsComponent } from './events/events.component';
 import { ContactComponent } from './contact/contact.component';
 import { NewsComponent } from './news/news.component';
 import { EventCardComponent } from './events/event-card/event-card.component';
-import { Logger } from "angular2-logger/core";
+
 
 @NgModule({
   declarations: [
@@ -47,7 +47,7 @@ import { Logger } from "angular2-logger/core";
       apiKey: 'AIzaSyDvO9TRr0j0NvPjYhX_ZCA8xTP3dD0aA40'
     })
   ],
-  providers: [EventService, UtilService, LogService, Logger, AppService],
+  providers: [EventService, UtilService, LogService, AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
