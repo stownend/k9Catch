@@ -8,4 +8,5 @@ export class K9Event {
     public lat: number;
     public lng: number;
     public zoom: number;
+    public time: string;
 }

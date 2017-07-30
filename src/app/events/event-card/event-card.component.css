@@ -9,3 +9,25 @@ textarea {
 .edit-button {
     margin-left: 10px;
 }
+
+div {
+    font-size: 20px;
+}
+
+label {
+    width: 110px;
+}
+
+material-datepicker div input {
+    font-size: 14pt;
+    width: 120px;
+    padding-left: 0px;    
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}

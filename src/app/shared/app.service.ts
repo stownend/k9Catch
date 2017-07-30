@@ -8,7 +8,7 @@ export class AppService {
   //dataService: string = "https://smtk9service.azurewebsites.net/api";
 
   loggedOn: boolean = false;
-  adminMode: boolean = false;
+  adminMode: boolean = true;
 
   constructor() { }
 

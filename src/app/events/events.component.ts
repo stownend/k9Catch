@@ -44,6 +44,7 @@ export class EventsComponent implements OnInit {
     newEvent.lat = 53.565926;
     newEvent.lng = -1.7330246;
     newEvent.zoom = 8;
+    newEvent.when = new Date();
 
     this.events.splice(0, 0, newEvent);
 
@@ -71,6 +72,9 @@ export class EventsComponent implements OnInit {
   }
 
   saveEdit(event: K9Event) {
+
+    event.when = new Date(this.utilService.datePart(event.when) + " " + event.time);
+
     // Nothing to do yet. Will send to service but just clear out the backup for now
     this.backupEvent = null;
   }
@@ -99,4 +103,6 @@ export class EventsComponent implements OnInit {
 
     return newId;
   }
+
+
 }

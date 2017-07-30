@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AgmCoreModule } from '@agm/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DatepickerModule } from 'angular2-material-datepicker'
+import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -21,6 +24,7 @@ import { EventsComponent } from './events/events.component';
 import { ContactComponent } from './contact/contact.component';
 import { NewsComponent } from './news/news.component';
 import { EventCardComponent } from './events/event-card/event-card.component';
+import { TestComponent } from './events/test/test.component';
 
 
 @NgModule({
@@ -36,12 +40,16 @@ import { EventCardComponent } from './events/event-card/event-card.component';
     ContactComponent,
     NewsComponent,
     EventCardComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    DatepickerModule,
+    Ng2Bs3ModalModule,
     NgbModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDvO9TRr0j0NvPjYhX_ZCA8xTP3dD0aA40'

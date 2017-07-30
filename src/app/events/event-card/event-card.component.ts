@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { K9Event } from '../../models/k9event';
 import { EventsComponent } from '../events.component';
 import { LogService } from '../../shared/log.service';
@@ -11,6 +11,8 @@ import { Coordinate } from '../../models/coordinate';
   styleUrls: ['./event-card.component.css']
 })
 export class EventCardComponent implements OnInit {
+
+  @ViewChild('eventForm') templateForm: any;
 
   // Gets passed in from a repeater on the events page
   @Input() event: K9Event;
@@ -56,11 +58,16 @@ export class EventCardComponent implements OnInit {
   }
 
   abortEdit() {
+    this.logService.debug("Dirty : " + this.templateForm.dirty);
+
     this.logService.debug("Aborting : " + this.event.id + " : " + this.event.eventName);
     this.event = Object.assign({}, this.eventsComponent.abortEdit());
   }
 
   saveEdit() {
+
+    this.logService.debug("Dirty : " + this.templateForm.dirty);
+
     this.eventsComponent.saveEdit(this.event);
   }
 
@@ -69,6 +76,5 @@ export class EventCardComponent implements OnInit {
     this.logService.debug("Deleting : " + this.event.id + " : " + this.event.eventName);
     this.eventsComponent.deleteEvent(this.event);
   }
-
 
 }

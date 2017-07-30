@@ -1,50 +1,62 @@
 <div class="box">
-    <div class="col-lg-12">
-        <div *ngIf="appService.adminMode">
-            <div *ngIf="!editing(event)" >
-                <button class="btn btn-default pull-right" [disabled]="editingInProgress()" (click)="startEdit()"><i class="fa fa-pencil"></i> Edit</button>
+    <form (ngSubmit)="saveEdit()" #eventForm="ngForm">
+        <div class="col-lg-12">
+            <div *ngIf="appService.adminMode">
+                <div *ngIf="!editing(event)">
+                    <button class="btn btn-default pull-right" [disabled]="editingInProgress()" (click)="startEdit()"><i class="fa fa-pencil"></i> Edit</button>
+                </div>
+                <div *ngIf="editing(event)">
+                    <button type="submit" class="btn btn-default pull-right edit-button" [disabled]="!eventForm.form.valid"><i class="fa fa-check"></i> Save</button>
+                    <button class="btn btn-default pull-right edit-button" (click)="abortEdit()"><i class="fa fa-times"></i> Undo</button>
+                    <button class="btn btn-default pull-right edit-button" (click)="deleteEvent()"><i class="fa fa-trash"></i> Delete</button>
+                </div>
+                <div class="clearfix"></div>
             </div>
-            <div *ngIf="editing(event)">
-                <button class="btn btn-default pull-right edit-button" (click)="saveEdit()"><i class="fa fa-check"></i> Save</button>
-                <button class="btn btn-default pull-right edit-button" (click)="abortEdit()"><i class="fa fa-times"></i> Undo</button>
-                <button class="btn btn-default pull-right edit-button" (click)="deleteEvent()"><i class="fa fa-trash"></i> Delete</button>
+            <hr>
+            <h2 class="intro-text text-center">Event
+                <strong *ngIf="!editing()">{{event.eventName}}</strong>
+                <input *ngIf="editing()" name="eventName" [(ngModel)]="event.eventName" required class="text-uppercase" style="width:300px;">
+            </h2>
+            <hr>
+        </div>
+        <div class="col-md-8">
+            <app-map [placeName]="event.placeName" [(lat)]="event.lat" [(lng)]="event.lng" [zoom]="event.zoom" (onMapClick)="onMapClick($event)"
+                class="col-8"></app-map>
+            <div *ngIf="editing()">
+                <br/>
+                <p class="bg-success small"><strong>Tip :</strong> Size/move the map to suit then click/tap the required map centre.</p>
             </div>
-            <div class="clearfix"></div>
         </div>
-        <hr>
-        <h2 class="intro-text text-center">Event
-            <strong *ngIf="!editing()">{{event.eventName}}</strong>
-            <input *ngIf="editing()" [(ngModel)]="event.eventName">
-        </h2>
-        <hr>
-    </div>
-    <div class="col-md-8">
-        <app-map [placeName]="event.placeName" [(lat)]="event.lat" [(lng)]="event.lng" [zoom]="event.zoom" (onMapClick)="onMapClick($event)" class="col-8"></app-map>
-        <div *ngIf="editing()">
-            <br/>
-            <p class="bg-danger"><strong>Tip :</strong> Scale/move the map to suit then click/tap the required map centre.</p>
+        <div class="col-4 form-group">
+            <div>
+                <label for="organiser">Organiser</label>
+                <span *ngIf="!editing()">{{event.organiser}}</span>
+                <input id="organiser" name="organiser" required *ngIf="editing()" [(ngModel)]="event.organiser">
+            </div>
+            <div>
+                <label for="when" *ngIf="!editing()">When</label>
+                <span *ngIf="!editing()">{{event.when | date:'d MMM y HH:mm'}}</span>
+                <!-- <input id="when" *ngIf="editing()" [(ngModel)]="event.when"> -->
+                <label for="when" *ngIf="editing()" >Date</label>
+                <material-datepicker *ngIf="editing()" required [(date)]="event.when" dateFormat="DD-MM-YYYY" fontFamily='"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif'></material-datepicker>
+                <label for="whenTime" *ngIf="editing()" >Time</label>
+                <input id="whenTime" name="whenTime" required *ngIf="editing()" [(ngModel)]="event.time">
+            </div>
+            <div>
+                <label for="where">Where</label>
+                <span *ngIf="!editing()">{{event.placeName}}</span>
+                <input id="where" name="where" *ngIf="editing()" required [(ngModel)]="event.placeName">
+                <div>
+                    <label for="address"></label>
+                    <span *ngIf="!editing()">
+                        <span style="display: inline-block; white-space: pre;">{{event.addressLines}}</span>
+                    </span>
+                    <span *ngIf="editing()">
+                        <textarea rows="5" id="address" name="address" required [(ngModel)]="event.addressLines"></textarea>
+                    </span>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="col-4">
-        <p>Organiser:
-            <strong *ngIf="!editing()">{{event.organiser}}</strong>
-            <input *ngIf="editing()" [(ngModel)]="event.organiser" class="pull-right">
-        </p>
-        <p>When:
-            <strong *ngIf="!editing()">{{event.when | date:'medium'}}</strong>
-            <input *ngIf="editing()" [(ngModel)]="event.when" class="pull-right">
-        </p>
-        <p>Where: 
-            <strong *ngIf="!editing()">{{event.placeName}}
-              <p style="white-space: pre; font-size: 1em;">{{event.addressLines}}</p>
-            </strong>
-            <span *ngIf="editing()">
-                <input [(ngModel)]="event.placeName" class="pull-right">
-                <p style="font-size: 1em;">
-                    <textarea rows="6" [(ngModel)]="event.addressLines" class="pull-right"></textarea>
-                </p>
-            </span>
-        </p>
-    </div>
-    <div class="clearfix"></div>
+        <div class="clearfix"></div>
+    </form>
 </div>

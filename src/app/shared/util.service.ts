@@ -23,6 +23,12 @@ export class UtilService {
     return this.pad(String(now.getHours()), 2) + ":" + this.pad(String(now.getMinutes()), 2) + ":" + this.pad(String(now.getSeconds()), 2) + "." + this.pad(String(now.getMilliseconds()), 3);
   }
 
+  datePart(date: Date): string {
+    let dateOnly = date.getFullYear() + "-" + this.pad(String(date.getMonth() + 1), 2) + "-" + this.pad(String(date.getDate()), 2);
+
+    return dateOnly;
+  }
+
   pad(num: string, size: number): string {
     var s = "000000000" + num;
     return s.substr(s.length-size);
