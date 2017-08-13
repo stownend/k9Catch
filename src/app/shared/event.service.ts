@@ -28,4 +28,25 @@ export class EventService {
         return events; 
       });
   }
+
+  addEvent(event: K9Event) {
+    return this.http.post(this.appService.dataService + '/events', event)
+      .map(response => {
+        return; 
+      });
+  }
+
+  updateEvent(event: K9Event) {
+    return this.http.put(this.appService.dataService + '/events', event)
+      .map(response => {
+        return; 
+      });
+  }
+
+  deleteEvent(event: K9Event) {
+    return this.http.delete(this.appService.dataService + '/events/' + event.id)
+      .map(response => {
+        return; 
+      });
+  }
 }

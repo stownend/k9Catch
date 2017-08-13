@@ -75,28 +75,52 @@ export class EventsComponent implements OnInit {
 
     event.when = new Date(this.utilService.datePart(event.when) + " " + event.time);
 
-    // Nothing to do yet. Will send to service but just clear out the backup for now
-    this.backupEvent = null;
+    if (event.id < 0) {
+      this.eventService.addEvent(event)
+        .subscribe(events => {
+          this.logService.debug("Saved event : " + event.eventName);
+
+          this.backupEvent = null;
+
+          this.eventService.getEvents()
+            .subscribe(events => {
+              this.events = events;
+            
+              this.logService.debugObj(this.events);
+            });
+
+        });
+    } else {
+      this.eventService.updateEvent(event)
+        .subscribe(events => {
+          this.logService.debug("Updated event : " + event.eventName);
+
+          this.backupEvent = null;
+        });
+    }
   }
 
   deleteEvent(event: K9Event) {
-    // Just remove from array for now. 
-    // Will delete using service
 
     this.logService.debug("Parent deleting : " + event.id + " : " + event.eventName);
 
-    var position = this.utilService.indexOf(this.events, (eventToCompare) => { return eventToCompare.id == event.id;});
+    this.eventService.deleteEvent(event)
+        .subscribe(events => {
+          this.logService.debug("Deleted event : " + event.eventName);
 
-    this.logService.debug("at position : " + position);
+          var position = this.utilService.indexOf(this.events, (eventToCompare) => { return eventToCompare.id == event.id;});
 
-    this.events.splice(position, 1);
+          this.logService.debug("at position : " + position);
 
-    this.backupEvent = null;
+          this.events.splice(position, 1);
+
+          this.backupEvent = null;
+        });
   }
 
   private getLowestNegativeId(): number {
 
-    let lowestId: number = this.events[0].id;
+    let lowestId: number = this.events.length > 0 ? this.events[0].id : 0;
     let newId = lowestId >= 0 ? -1 : lowestId - 1;
 
     this.logService.debug("New Id : " + newId);
