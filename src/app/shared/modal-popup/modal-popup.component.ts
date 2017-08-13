@@ -26,11 +26,11 @@ export class ModalPopupComponent implements OnInit {
     this.modal.open();
   }
 
-  protected okSelected() {
+  okSelected() {
     this.onOkClicked.emit();    
   }
 
-  protected cancelSelected() {
+  cancelSelected() {
     this.onCancelClicked.emit();    
   }
 

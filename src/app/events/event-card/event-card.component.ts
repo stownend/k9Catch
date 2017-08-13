@@ -64,7 +64,7 @@ export class EventCardComponent implements OnInit {
     this.logService.debug("Dirty : " + this.templateForm.dirty);
 
     e.preventDefault();
-    
+
 // this.doAbort();
 
     if (this.templateForm.dirty) {
@@ -74,7 +74,7 @@ export class EventCardComponent implements OnInit {
     }
   }
 
-  onConfirmAbort() {
+  onConfirmAbort(e: any) {
     this.doAbort();
   }
 
@@ -97,7 +97,7 @@ export class EventCardComponent implements OnInit {
     
   }
 
-  onConfirmDelete() {
+  onConfirmDelete(e: any) {
     this.doDelete();
   }
 
