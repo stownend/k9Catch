@@ -4,6 +4,7 @@ import { EventsComponent } from '../events.component';
 import { LogService } from '../../shared/log.service';
 import { AppService } from '../../shared/app.service';
 import { Coordinate } from '../../models/coordinate';
+import { ModalPopupComponent } from '../../shared/modal-popup/modal-popup.component';
 
 @Component({
   selector: 'app-event-card',
@@ -13,6 +14,8 @@ import { Coordinate } from '../../models/coordinate';
 export class EventCardComponent implements OnInit {
 
   @ViewChild('eventForm') templateForm: any;
+  @ViewChild('confirmDelete') confirmDelete: ModalPopupComponent;
+  @ViewChild('confirmDiscard') confirmDiscard: ModalPopupComponent;
 
   // Gets passed in from a repeater on the events page
   @Input() event: K9Event;
@@ -57,9 +60,25 @@ export class EventCardComponent implements OnInit {
     this.eventsComponent.startEdit(this.event);
   }
 
-  abortEdit() {
+  abortEdit(e) {
     this.logService.debug("Dirty : " + this.templateForm.dirty);
 
+    e.preventDefault();
+    
+// this.doAbort();
+
+    if (this.templateForm.dirty) {
+      this.confirmDiscard.openModal();
+    } else {
+      this.doAbort();
+    }
+  }
+
+  onConfirmAbort() {
+    this.doAbort();
+  }
+
+  doAbort() {
     this.logService.debug("Aborting : " + this.event.id + " : " + this.event.eventName);
     this.event = Object.assign({}, this.eventsComponent.abortEdit());
   }
@@ -71,10 +90,19 @@ export class EventCardComponent implements OnInit {
     this.eventsComponent.saveEdit(this.event);
   }
 
-  deleteEvent() {
-    // Will show a confirm modal
+  deleteEvent(e) {
+    e.preventDefault();
+
+    this.confirmDelete.openModal();
+    
+  }
+
+  onConfirmDelete() {
+    this.doDelete();
+  }
+
+  protected doDelete() {
     this.logService.debug("Deleting : " + this.event.id + " : " + this.event.eventName);
     this.eventsComponent.deleteEvent(this.event);
   }
-
 }

@@ -1,3 +1,17 @@
+<app-modal-popup #confirmDiscard 
+    title="Please Confirm" 
+    body="You have changed information about this event but have not saved it. Are you sure that you wish to discard the changes?"
+    (onOkClicked)="onConfirmAbort($event)"
+    >
+</app-modal-popup>
+
+<app-modal-popup #confirmDelete 
+    title="Please Confirm" 
+    body="Are you sure that you wish to delete this event?"
+    (onOkClicked)="onConfirmDelete($event)"
+    >
+</app-modal-popup>
+
 <div class="box">
     <form (ngSubmit)="saveEdit()" #eventForm="ngForm">
         <div class="col-lg-12">
@@ -7,8 +21,8 @@
                 </div>
                 <div *ngIf="editing(event)">
                     <button type="submit" class="btn btn-default pull-right edit-button" [disabled]="!eventForm.form.valid"><i class="fa fa-check"></i> Save</button>
-                    <button class="btn btn-default pull-right edit-button" (click)="abortEdit()"><i class="fa fa-times"></i> Undo</button>
-                    <button class="btn btn-default pull-right edit-button" (click)="deleteEvent()"><i class="fa fa-trash"></i> Delete</button>
+                    <button class="btn btn-default pull-right edit-button" (click)="abortEdit($event)"><i class="fa fa-times"></i> Undo</button>
+                    <button class="btn btn-default pull-right edit-button" (click)="deleteEvent($event)"><i class="fa fa-trash"></i> Delete</button>
                 </div>
                 <div class="clearfix"></div>
             </div>

@@ -25,6 +25,7 @@ import { ContactComponent } from './contact/contact.component';
 import { NewsComponent } from './news/news.component';
 import { EventCardComponent } from './events/event-card/event-card.component';
 import { TestComponent } from './events/test/test.component';
+import { ModalPopupComponent } from './shared/modal-popup/modal-popup.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { TestComponent } from './events/test/test.component';
     NewsComponent,
     EventCardComponent,
     TestComponent,
+    ModalPopupComponent,
   ],
   imports: [
     BrowserModule,

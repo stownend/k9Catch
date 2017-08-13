@@ -1,17 +1,4 @@
 <div class="container">
-
-<button type="button" class="btn btn-default" (click)="modal.open()">Open me!</button>
-
-<modal #modal>
-    <modal-header [show-close]="true">
-        <h4 class="modal-title">I'm a modal!</h4>
-    </modal-header>
-    <modal-body>
-        Hello World!
-    </modal-body>
-    <modal-footer [show-default-buttons]="true"></modal-footer>
-</modal>    
-
     <div *ngIf="appService.adminMode" class="row">
         <button class="btn btn-default pull-right" [disabled]="editingInProgress()" (click)="addEvent()"><i class="fa fa-plus"></i> New Event</button>
         <br/>
